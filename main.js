@@ -10,11 +10,14 @@ window.onkeyup = function(e) {
 	let key = e.keyCode ? e.keyCode : e.which;
 	if (key == 76) { // L
 		let like = document.getElementsByClassName("p-item action like")[0];
-		let clickEvent = new MouseEvent("click", {
-			"view": window,
-			"bubbles": true,
-			"cancelable": false
-		});
-		like.dispatchEvent(clickEvent);
+		// make sure that element does exist before dispatching the event
+		if (like) {
+            		let clickEvent = new MouseEvent("click", {
+                		"view": window,
+                		"bubbles": true,
+                		"cancelable": false
+            		});
+            		like.dispatchEvent(clickEvent);
+        	}
 	}
 };
